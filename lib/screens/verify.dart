@@ -1,3 +1,4 @@
+import 'package:ai/screens/account.dart';
 import 'package:flutter/material.dart';
 import 'package:ai/custom/otpinput.dart';
 import 'package:ai/custom/custom.dart';
@@ -69,7 +70,7 @@ class _VerifyState extends State<Verify> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Verify(),
+                          builder: (context) => const Account(),
                         ));
                   },
                   style: ElevatedButton.styleFrom(
@@ -80,7 +81,7 @@ class _VerifyState extends State<Verify> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(36),
                     ),
-                    elevation: 50,
+                    elevation: 5,
                   ),
                   child: const Text(
                     'Verify',
