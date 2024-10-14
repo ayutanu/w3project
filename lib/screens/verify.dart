@@ -74,7 +74,7 @@ class _VerifyState extends State<Verify> {
                         ));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF281B48),
+                    backgroundColor: const Color(0xFF281B48),
                     textStyle: const TextStyle(
                       fontFamily: 'awanzaman',
                     ),

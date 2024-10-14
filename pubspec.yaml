@@ -30,6 +30,10 @@ flutter:
     - assets/images/rr.jpg
     - assets/images/p.jpg
     - assets/fonts/med.eot
+    - assets/fonts/black.otf
+    - assets/fonts/bold.otf
+    - assets/fonts/light.otf
+    - assets/fonts/med.otf
 
   fonts:
     - family: awanzaman
