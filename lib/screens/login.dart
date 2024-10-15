@@ -17,7 +17,6 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    // Get the device size using MediaQuery
     final size = MediaQuery.of(context).size;
 
     return SafeArea(
@@ -28,7 +27,6 @@ class _LoginState extends State<Login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Using Stack to position semicircle and Login text
               Stack(
                 children: [
                   Positioned(
@@ -56,20 +54,17 @@ class _LoginState extends State<Login> {
                 ],
               ),
               const SizedBox(height: 60),
-
               Image.asset(
                 'assets/images/b.jpg',
-                height: size.height * 0.35, // Responsive height
-                width: size.width * 0.8, // Responsive width
+                height: size.height * 0.35,
+                width: size.width * 0.8,
               ),
-              const SizedBox(
-                  height: 30), // Add spacing between image and text field
-
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 43),
                 child: SizedBox(
                   width: double.infinity,
-                  height: 50, // Same height as the button
+                  height: 55,
                   child: Container(
                     decoration: BoxDecoration(
                       color: myColor2,
@@ -93,12 +88,11 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(height: 35),
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 43),
                 child: SizedBox(
                   width: double.infinity,
-                  height: 50,
+                  height: 55,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -124,7 +118,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(height: 55),
-
               const Center(
                 child: Text('OR Login with'),
               ),
@@ -152,7 +145,6 @@ class _LoginState extends State<Login> {
                 ],
               ),
               const SizedBox(height: 12),
-
               Stack(
                 children: [
                   Positioned(
