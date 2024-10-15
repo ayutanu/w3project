@@ -37,7 +37,7 @@ class _AccountState extends State<Account> {
               width: 350,
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 31,
           ),
           const Text(

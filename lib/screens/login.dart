@@ -32,11 +32,11 @@ class _LoginState extends State<Login> {
               Stack(
                 children: [
                   Positioned(
-                    right: size.width * 0.2, // Adjusted for responsiveness
+                    right: size.width * 0.2,
                     top: -30,
                     child: CustomPaint(
                       size: const Size(80, 80),
-                      painter: SemicirclePainter(myColor2), // Semicircle color
+                      painter: SemicirclePainter(myColor2),
                     ),
                   ),
                   const SizedBox(height: 90), // Shift Login text a bit lower
@@ -145,7 +145,7 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(width: 12),
                   Image.asset(
-                    'assets/images/g2.png',
+                    'assets/images/fr.png',
                     width: 55,
                     height: 55,
                   ),
