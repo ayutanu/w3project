@@ -11,15 +11,22 @@ class Account extends StatefulWidget {
 class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
-        ),
+        ), // Remove shadow
+        iconTheme:
+            const IconThemeData(color: Color(0xFF281B48)), // Set icon color
         title: const Text(
           'Account created',
           textAlign: TextAlign.center,
@@ -27,85 +34,90 @@ class _AccountState extends State<Account> {
             color: Color(0xFF281B48),
           ),
         ),
+        centerTitle: true, // Center title in AppBar
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: 45), // Consistent horizontal padding
-        child: Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.start, // Align text to the left
-          children: [
-            Center(
-              child: Image.asset(
-                'assets/images/p.jpg',
-                height: 400,
-                width: 300,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.1, // 10% of screen width padding
+            vertical: screenHeight * 0.02, // 2% of screen height padding
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/p2.png',
+                  height: screenHeight * 0.4, // 40% of screen height
+                  width: screenWidth * 0.7, // 70% of screen width
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(
-                height: 15), // Increased vertical spacing for consistency
-            const Text(
-              'Hi There,',
-              style: TextStyle(
-                  fontSize: 35,
+              SizedBox(height: screenHeight * 0.02), // 2% vertical spacing
+              const Text(
+                'Hi There,',
+                style: TextStyle(
+                  fontSize: 25,
                   color: Color(0xFF281B48),
-                  fontFamily: 'awanzaman',
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Complete your profile to get personalized feeds',
-              style: TextStyle(
-                fontSize: 25,
-                color: Color(0xFF281B48),
-                fontFamily: 'awanzaman',
+                  fontFamily: 'iso',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 31),
-            SizedBox(
-              width: double.infinity, // Full width of the parent container
-              height: 60, // Adjust height as needed
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          const Login(), // Navigate to Login screen
+              SizedBox(height: screenHeight * 0.01), // 1% vertical spacing
+              const Text(
+                'Complete your profile to get personalized feeds',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Color(0xFF281B48),
+                  fontFamily: 'iso',
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.04), // 4% vertical spacing
+              SizedBox(
+                width: double.infinity,
+                height: screenHeight * 0.06, // 8% of screen height for button
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Login(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF281B48),
+                    textStyle: const TextStyle(
+                      fontFamily: 'iso',
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF281B48),
-                  textStyle: const TextStyle(
-                    fontFamily: 'awanzaman',
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(36),
+                    ),
+                    elevation: 5,
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(36),
-                  ),
-                  elevation: 5,
-                ),
-                child: const Text(
-                  'Verify',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-            ),
-            const SizedBox(height: 18),
-            Center(
-              child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Skip',
-                  style: TextStyle(
-                    color: Color(0xFF281B48),
-                    decoration: TextDecoration.underline,
-                    fontFamily: 'awanzaman',
+                  child: const Text(
+                    'Verify',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: screenHeight * 0.02), // 2% vertical spacing
+              Center(
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: Color(0xFF281B48),
+                      decoration: TextDecoration.underline,
+                      fontFamily: 'iso',
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

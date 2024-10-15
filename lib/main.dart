@@ -1,8 +1,12 @@
 import 'package:ai/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.white, // Change to your desired color
+  )); // Change to your desired color
 }
 
 class MyApp extends StatelessWidget {
@@ -21,9 +25,7 @@ class MyApp extends StatelessWidget {
           final screenHeight = screenSize.height;
 
           return const Scaffold(
-            body: SafeArea(
-              child: Login(),
-            ),
+            body: Login(),
           );
         },
       ),

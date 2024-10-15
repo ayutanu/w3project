@@ -25,18 +25,25 @@ flutter:
     - assets/images/b.jpg
     - assets/images/fb2.png
     - assets/images/google.png
+    - assets/images/google (1).png
     - assets/images/ig.png
+    - assets/images/facebook.png
+    - assets/images/twitter.png
     - assets/images/g2.png
     - assets/images/rr.jpg
-    - assets/images/p.jpg
+    - assets/images/p2.png
     - assets/images/fr.png
     - assets/fonts/med.eot
     - assets/fonts/black.otf
     - assets/fonts/bold.otf
     - assets/fonts/light.otf
     - assets/fonts/med.otf
+    - assets/fonts/SF-Pro-Display-Medium.otf
 
   fonts:
     - family: awanzaman
       fonts:
         - asset: assets/fonts/med.eot
+    - family: iso
+      fonts: 
+        - asset: assets/fonts/SF-Pro-Display-Medium.otf

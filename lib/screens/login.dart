@@ -1,6 +1,5 @@
 import 'package:ai/screens/verify.dart';
 import 'package:flutter/material.dart';
-import 'package:ai/custom/custom.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,168 +17,172 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final screenWidth = size.width;
+    final screenHeight = size.height;
 
-    return SafeArea(
-      child: Scaffold(
+    // Set a common width and height for both button and text field
+    final commonWidth = screenWidth * 0.8; // 80% of screen width
+    final commonHeight = screenHeight * 0.07; // 7% of screen height
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(6.0),
+        title: Text(
+          'Login',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: myColor,
+            fontSize: 24,
+            fontFamily: 'iso',
+          ),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(screenWidth * 0.02), // 2% padding
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Stack(
-                children: [
-                  Positioned(
-                    right: size.width * 0.2,
-                    top: -30,
-                    child: CustomPaint(
-                      size: const Size(80, 80),
-                      painter: SemicirclePainter(myColor2),
-                    ),
-                  ),
-                  const SizedBox(height: 90), // Shift Login text a bit lower
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 30), // Slight shift
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: myColor,
-                          fontFamily: 'awanzaman',
-                          fontSize: 24,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 60),
+              SizedBox(height: screenHeight * 0.02), // 2% vertical spacing
               Image.asset(
                 'assets/images/b.jpg',
-                height: size.height * 0.35,
-                width: size.width * 0.8,
+                height: screenHeight * 0.35, // 35% of screen height
+                width: commonWidth,
               ),
-              const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 43),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 55,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: myColor2,
-                      borderRadius: BorderRadius.circular(36), // Circular shape
+              SizedBox(height: screenHeight * 0.03), // 3% vertical spacing
+
+              // TextField with same width and height as the button
+              SizedBox(
+                width: commonWidth,
+                height: commonHeight,
+                child: TextField(
+                  controller: _textEditingController,
+                  keyboardType: TextInputType.number,
+                  maxLength: 10, // Limit input to 10 digits
+                  decoration: InputDecoration(
+                    hoverColor: const Color(0xFFe9dee6),
+                    labelText: 'Phone number',
+                    labelStyle: const TextStyle(
+                      color: Color(0xFF281B48),
+                      fontFamily: 'iso',
+                      fontSize: 14,
                     ),
-                    child: TextField(
-                      keyboardType: TextInputType.phone,
-                      controller: _textEditingController,
-                      decoration: InputDecoration(
-                        labelText: 'Phone Number',
-                        labelStyle: TextStyle(
-                          color: myColor,
-                          fontFamily: 'awanzaman',
-                          fontSize: 14,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(36),
+                      borderSide: const BorderSide(
+                        color: Color(0xFFD0BACA),
+                      ),
+                    ),
+                    contentPadding: const EdgeInsets.all(16.0),
+                    counterText: "", // Hide counter text
+                  ),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: Color(0xFF281B48),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: screenHeight * 0.05), // 5% vertical spacing
+
+              // ElevatedButton with same width and height as the TextField
+              SizedBox(
+                width: commonWidth,
+                height: commonHeight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Verify(
+                          number: _textEditingController.text,
                         ),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.all(16.0),
                       ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: myColor,
+                    textStyle: const TextStyle(
+                      fontFamily: 'iso',
                     ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(36),
+                    ),
+                  ),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              const SizedBox(height: 35),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 43),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 55,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Verify(),
-                          ));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: myColor,
-                      textStyle: const TextStyle(
-                        fontFamily: 'awanzaman',
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36),
-                      ),
-                    ),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 55),
+
+              SizedBox(height: screenHeight * 0.05), // 5% vertical spacing
+
               const Center(
-                child: Text('OR Login with'),
+                child: Text(
+                  'OR Login with',
+                  style: TextStyle(color: Color(0xFF281B48), fontFamily: 'iso'),
+                ),
               ),
-              const SizedBox(height: 12),
+
+              SizedBox(height: screenHeight * 0.02), // 2% vertical spacing
+
+              // Social Media Icons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/fb2.png',
-                    width: 50,
-                    height: 50,
+                    'assets/images/facebook.png',
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.1,
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: screenWidth * 0.03), // 3% horizontal spacing
                   Image.asset(
-                    'assets/images/ig.png',
-                    width: 45,
-                    height: 50,
+                    'assets/images/google (1).png',
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.1,
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: screenWidth * 0.03), // 3% horizontal spacing
                   Image.asset(
-                    'assets/images/fr.png',
-                    width: 55,
-                    height: 55,
+                    'assets/images/twitter.png',
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.1,
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
-              Stack(
+
+              SizedBox(height: screenHeight * 0.03), // 3% vertical spacing
+
+              // Sign-up Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Positioned(
-                    left: -25,
-                    top: -30,
-                    child: CustomPaint(
-                      size: const Size(60, 60),
-                      painter: SemicirclePainter(myColor2), // Semicircle color
+                  Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(
+                      fontFamily: 'iso',
+                      fontSize: 15,
+                      color: myColor,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have an account?',
-                        style: TextStyle(
-                          fontFamily: 'awanzaman',
-                          fontSize: 15,
-                          color: myColor,
-                        ),
+                  const SizedBox(width: 4),
+                  GestureDetector(
+                    onTap: () {
+                      // Navigate to Sign Up page or handle sign up logic
+                    },
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: myColor,
+                        fontFamily: 'iso',
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Register',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontFamily: 'awanzaman',
-                            fontWeight: FontWeight.bold,
-                            color: myColor,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  )
                 ],
               ),
             ],
