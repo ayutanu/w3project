@@ -25,8 +25,7 @@ class _AccountState extends State<Account> {
           },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ), // Remove shadow
-        iconTheme:
-            const IconThemeData(color: Color(0xFF281B48)), // Set icon color
+        iconTheme: const IconThemeData(color: Color(0xFF281B48)),
         title: const Text(
           'Account created',
           textAlign: TextAlign.center,
@@ -34,7 +33,7 @@ class _AccountState extends State<Account> {
             color: Color(0xFF281B48),
           ),
         ),
-        centerTitle: true, // Center title in AppBar
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -48,7 +47,7 @@ class _AccountState extends State<Account> {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/images/p2.png',
+                  'assets/images/welcome.jpg',
                   height: screenHeight * 0.4, // 40% of screen height
                   width: screenWidth * 0.7, // 70% of screen width
                   fit: BoxFit.cover,

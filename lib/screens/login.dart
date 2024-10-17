@@ -20,9 +20,8 @@ class _LoginState extends State<Login> {
     final screenWidth = size.width;
     final screenHeight = size.height;
 
-    // Set a common width and height for both button and text field
-    final commonWidth = screenWidth * 0.8; // 80% of screen width
-    final commonHeight = screenHeight * 0.07; // 7% of screen height
+    final commonWidth = screenWidth * 0.8;
+    final commonHeight = screenHeight * 0.07;
 
     return Scaffold(
       appBar: AppBar(
@@ -41,19 +40,17 @@ class _LoginState extends State<Login> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.02), // 2% padding
+          padding: EdgeInsets.all(screenWidth * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: screenHeight * 0.02), // 2% vertical spacing
+              SizedBox(height: screenHeight * 0.02),
               Image.asset(
                 'assets/images/b.jpg',
-                height: screenHeight * 0.35, // 35% of screen height
+                height: screenHeight * 0.35,
                 width: commonWidth,
               ),
-              SizedBox(height: screenHeight * 0.03), // 3% vertical spacing
-
-              // TextField with same width and height as the button
+              SizedBox(height: screenHeight * 0.03),
               SizedBox(
                 width: commonWidth,
                 height: commonHeight,
@@ -170,9 +167,7 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
-                    onTap: () {
-                      // Navigate to Sign Up page or handle sign up logic
-                    },
+                    onTap: () {},
                     child: Text(
                       'Sign Up',
                       style: TextStyle(

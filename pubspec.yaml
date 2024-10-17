@@ -33,6 +33,7 @@ flutter:
     - assets/images/rr.jpg
     - assets/images/p2.png
     - assets/images/fr.png
+    - assets/images/welcome.jpg
     - assets/fonts/med.eot
     - assets/fonts/black.otf
     - assets/fonts/bold.otf

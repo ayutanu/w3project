@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.white, // Change to your desired color
-  )); // Change to your desired color
+    statusBarColor: Colors.white,
+  ));
 }
 
 class MyApp extends StatelessWidget {
